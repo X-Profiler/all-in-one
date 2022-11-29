@@ -9,9 +9,8 @@ startXprofiler();
 
 // run project
 startProject(() => {
-  console.log('========= all project started =========');
-
   // run xtransit
   startXtransit();
+  console.log('========= all project started =========');
 });
 
