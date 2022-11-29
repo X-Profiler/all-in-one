@@ -1,0 +1,30 @@
+{
+  "name": "@xprofiler/all-in-one",
+  "version": "1.0.0",
+  "description": "startup of all projects with one script",
+  "main": "index.js",
+  "scripts": {
+    "dev": "EZM_ENV=local nodemon index.js",
+    "list": "pm2 list",
+    "start": "pm2 start index.js --name ezmall",
+    "stop": "pm2 delete ezmall"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/X-Profiler/all-in-one.git"
+  },
+  "author": "hyj1991 <yeekwanvong@gmail.com>",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/X-Profiler/all-in-one/issues"
+  },
+  "homepage": "https://github.com/X-Profiler/all-in-one#readme",
+  "dependencies": {
+    "@xprofiler/console": "^1.0.2",
+    "egg": "^3.5.0",
+    "pm2": "^5.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "ignore": [
+    "run",
+    "node_modules",
+    "logs"
+  ]
+}
