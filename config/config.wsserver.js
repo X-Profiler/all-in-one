@@ -3,9 +3,7 @@
 module.exports = () => {
   const config = {};
 
-  config.ignoreRouter = [];
-
-  config.customAuth = undefined;
+  config.wsValidTime = 10000;
 
   return config;
 };

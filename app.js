@@ -10,7 +10,6 @@ class AppBoot {
 
     // handle console router
     if (serverScope === 'console') {
-
       // custom auth
       if (customAuth) {
         this.app.middleware.unshift(customAuth);

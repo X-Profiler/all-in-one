@@ -1,19 +1,17 @@
 'use strict';
 
-const path = require('path');
+const startProject = require('./lib/project');
+const startXprofiler = require('./lib/xprofiler');
+const startXtransit = require('./lib/xtransit');
 
-const startCluster = require('egg').startCluster;
+// run xprofiler
+startXprofiler();
 
-const base = {
-  workers: 1,
-  baseDir: __dirname,
-  env: process.env.EZM_ENV ? process.env.EZM_ENV : 'prod',
-}
+// run project
+startProject(() => {
+  console.log('========= all project started =========');
 
-const options = Object.assign({}, base, {
-  port: 8443,
-  serverScope: 'console',
-  framework: path.dirname(require.resolve('@xprofiler/console')),
+  // run xtransit
+  startXtransit();
 });
 
-startCluster(options, () => console.log('ezmconsole started'));

@@ -106,3 +106,5 @@ dist
 run
 
 *.local.js
+
+profiler
