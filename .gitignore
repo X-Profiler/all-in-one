@@ -108,3 +108,5 @@ run
 *.local.js
 
 profiler
+
+package-lock.json
