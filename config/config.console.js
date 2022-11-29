@@ -3,6 +3,8 @@
 module.exports = () => {
   const config = {};
 
+  config.ignoreRouter = [];
+
   config.mysql = {
     app: true,
     agent: false,
