@@ -22,7 +22,7 @@
   "dependencies": {
     "@xprofiler/console": "^1.0.2",
     "@xprofiler/manager": "^1.0.0",
-    "@xprofiler/wsserver": "^1.0.0",
+    "@xprofiler/wsserver": "^1.0.1",
     "egg": "^3.5.0",
     "egg-xtransit": "^2.0.0",
     "pm2": "^5.2.2"
