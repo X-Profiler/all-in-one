@@ -3,6 +3,12 @@
 const os = require('os');
 const path = require('path');
 
+const {
+  EZM_SERVER,
+  EZM_ID,
+  EZM_SECRET,
+} = process.env;
+
 module.exports = appInfo => {
   const config = {};
 
@@ -42,13 +48,13 @@ module.exports = appInfo => {
   config.xtransitManager = 'http://127.0.0.1:8543';
 
   config.xtransit = {
-    server: 'ws://127.0.0.1:9090',
+    server: EZM_SERVER || 'ws://127.0.0.1:9090',
+    appId: EZM_ID || '',
+    appSecret: EZM_SECRET || '',
     logDir: path.join(__dirname, '../logs', appInfo.scope),
     customAgent() {
       return `${os.hostname()}@${appInfo.scope}`;
     },
-    appId: '',
-    appSecret: '',
   };
 
   return config;
