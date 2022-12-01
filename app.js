@@ -1,7 +1,5 @@
 'use strict';
 
-require('./lib/xprofiler')();
-
 class AppBoot {
   constructor(app) {
     this.app = app;

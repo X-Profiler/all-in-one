@@ -24,9 +24,8 @@
     "@xprofiler/manager": "^1.0.0",
     "@xprofiler/wsserver": "^1.0.0",
     "egg": "^3.5.0",
-    "pm2": "^5.2.2",
-    "xprofiler": "^2.3.0",
-    "xtransit": "^2.3.1"
+    "egg-xtransit": "^2.0.0",
+    "pm2": "^5.2.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

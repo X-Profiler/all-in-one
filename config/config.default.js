@@ -1,6 +1,9 @@
 'use strict';
 
-module.exports = () => {
+const os = require('os');
+const path = require('path');
+
+module.exports = appInfo => {
   const config = {};
 
   config.mysql = {
@@ -37,6 +40,16 @@ module.exports = () => {
   config.xprofilerConsole = 'http://127.0.0.1:8443';
 
   config.xtransitManager = 'http://127.0.0.1:8543';
+
+  config.xtransit = {
+    server: 'ws://127.0.0.1:9090',
+    logDir: path.join(__dirname, '../logs', appInfo.scope),
+    customAgent() {
+      return `${os.hostname()}@${appInfo.scope}`;
+    },
+    appId: '',
+    appSecret: '',
+  };
 
   return config;
 };

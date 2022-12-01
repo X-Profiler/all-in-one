@@ -2,6 +2,7 @@
   "ignore": [
     "run",
     "node_modules",
-    "logs"
+    "logs",
+    "profiler"
   ]
 }
