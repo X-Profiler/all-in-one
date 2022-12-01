@@ -6,14 +6,19 @@ class AppBoot {
   }
 
   didReady() {
-    const { options: { serverScope }, config: { ignoreRouter, basicAuthHooks }, router } = this.app;
+    const app = this.app;
+    const {
+      options: { serverScope },
+      config: { basicAuthHooks, ignoreRouter, customStorage },
+      router
+    } = app;
 
-    // handle console router
+    // custom console
     if (serverScope === 'console') {
-      // custom auth
+      // auth hooks
       if (basicAuthHooks) {
         let index = 0;
-        const middlewares = this.app.middleware;
+        const middlewares = app.middleware;
         for (const length = middlewares.length; index < length; index++) {
           const { _name } = middlewares[index];
           if (_name.includes('basicAuth')) {
@@ -43,6 +48,11 @@ class AppBoot {
           this.app.logger.info(`[devtoolx-console] ignore router: %s, methods: %s`, layer.path, layer.methods.join(','));
           layer.stack.pop();
         }
+      }
+
+      // app extension
+      if (typeof customStorage) {
+        app.storage = customStorage.call(app);
       }
     }
   }
