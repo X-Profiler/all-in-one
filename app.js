@@ -52,7 +52,12 @@ class AppBoot {
 
       // app extension
       if (typeof customStorage) {
-        app.storage = customStorage.call(app);
+        const originStorage = app.storage;
+        Object.defineProperty(app, 'storage', {
+          get() {
+            return customStorage.call(app, originStorage);
+          }
+        });
       }
     }
   }
