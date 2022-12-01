@@ -51,7 +51,7 @@ class AppBoot {
       }
 
       // app extension
-      if (typeof customStorage) {
+      if (customStorage) {
         const originStorage = app.storage;
         Object.defineProperty(app, 'storage', {
           get() {
