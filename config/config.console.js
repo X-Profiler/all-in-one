@@ -5,7 +5,7 @@ module.exports = () => {
 
   config.ignoreRouter = [];
 
-  config.customAuth = undefined;
+  config.basicAuthHooks = undefined;
 
   return config;
 };

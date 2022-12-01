@@ -6,13 +6,28 @@ class AppBoot {
   }
 
   didReady() {
-    const { options: { serverScope }, config: { ignoreRouter, customAuth }, router } = this.app;
+    const { options: { serverScope }, config: { ignoreRouter, basicAuthHooks }, router } = this.app;
 
     // handle console router
     if (serverScope === 'console') {
       // custom auth
-      if (customAuth) {
-        this.app.middleware.unshift(customAuth);
+      if (basicAuthHooks) {
+        let index = 0;
+        const middlewares = this.app.middleware;
+        for (const length = middlewares.length; index < length; index++) {
+          const { _name } = middlewares[index];
+          if (_name.includes('basicAuth')) {
+            break;
+          }
+        }
+
+        if (basicAuthHooks.before) {
+          middlewares.splice(index, 0, basicAuthHooks.before);
+        }
+
+        if (basicAuthHooks.after) {
+          middlewares.splice(index + 1, 0, basicAuthHooks.after);
+        }
       }
 
       // ignore routes
