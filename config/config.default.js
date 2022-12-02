@@ -43,6 +43,8 @@ module.exports = appInfo => {
     },
   };
 
+  config.forceHttp = true;
+
   config.xprofilerConsole = 'http://127.0.0.1:8443';
 
   config.xtransitManager = 'http://127.0.0.1:8543';
