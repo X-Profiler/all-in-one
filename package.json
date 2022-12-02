@@ -4,10 +4,18 @@
   "description": "startup of all projects with one script",
   "main": "index.js",
   "scripts": {
-    "dev": "EZM_ENV=local nodemon index.js",
-    "list": "pm2 list",
+    "dev": "cross-env EZM_ENV=local nodemon index.js",
     "start": "pm2 start index.js --name ezmall",
-    "stop": "pm2 delete ezmall"
+    "stop": "pm2 delete ezmall",
+    "dev:console": "cross-env EZM_ENV=local DISABLE_MANAGER=YES DISABLE_WSSERVER=YES nodemon index.js",
+    "dev:manager": "cross-env EZM_ENV=local DISABLE_CONSOLE=YES DISABLE_WSSERVER=YES nodemon index.js",
+    "dev:wsserver": "cross-env EZM_ENV=local DISABLE_CONSOLE=YES DISABLE_MANAGER=YES nodemon index.js",
+    "start:console": "cross-env DISABLE_MANAGER=YES DISABLE_WSSERVER=YES pm2 start index.js --name ezmconsole",
+    "stop:console": "pm2 delete ezmconsole",
+    "start:manager": "cross-env DISABLE_CONSOLE=YES DISABLE_WSSERVER=YES pm2 start index.js --name ezmmanager",
+    "stop:manager": "pm2 delete ezmmanager",
+    "start:wsserver": "cross-env DISABLE_CONSOLE=YES DISABLE_MANAGER=YES pm2 start index.js --name ezmwsserver",
+    "stop:wsserver": "pm2 delete ezmwsserver"
   },
   "repository": {
     "type": "git",
@@ -22,7 +30,8 @@
   "dependencies": {
     "@xprofiler/console": "^1.0.2",
     "@xprofiler/manager": "^1.0.0",
-    "@xprofiler/wsserver": "^1.0.1",
+    "@xprofiler/wsserver": "^1.0.2",
+    "cross-env": "^7.0.3",
     "egg": "^3.5.0",
     "egg-xtransit": "^2.0.0",
     "pm2": "^5.2.2"
