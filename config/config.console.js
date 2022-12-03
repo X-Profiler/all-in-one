@@ -7,5 +7,7 @@ module.exports = () => {
 
   config.basicAuthHooks = undefined;
 
+  config.customStorage = undefined;
+
   return config;
 };
