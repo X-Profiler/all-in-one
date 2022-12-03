@@ -4,6 +4,7 @@
   "description": "startup of all projects with one script",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint config lib app.js index.js --fix",
     "dev": "cross-env EZM_ENV=local nodemon index.js",
     "start": "pm2 start index.js --name ezmall",
     "stop": "pm2 delete ezmall",
@@ -37,6 +38,8 @@
     "pm2": "^5.2.2"
   },
   "devDependencies": {
+    "eslint": "^8.29.0",
+    "eslint-config-egg": "^12.1.0",
     "nodemon": "^2.0.20"
   }
 }

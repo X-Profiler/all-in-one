@@ -10,7 +10,7 @@ class AppBoot {
     const {
       options: { serverScope },
       config: { basicAuthHooks, ignoreRouter, customStorage },
-      router
+      router,
     } = app;
 
     // custom console
@@ -39,13 +39,13 @@ class AppBoot {
       if (ignoreRouter.length) {
         const layers = router.stack;
         for (const layer of layers) {
-          if (ignoreRouter.every(router => typeof router === 'string'
+          if (ignoreRouter.every(router => (typeof router === 'string'
             ? router !== layer.path
-            : router.path !== layer.path || !layer.methods.includes(router.method.toUpperCase()))) {
+            : router.path !== layer.path || !layer.methods.includes(router.method.toUpperCase())))) {
             continue;
           }
 
-          this.app.logger.info(`[devtoolx-console] ignore router: %s, methods: %s`, layer.path, layer.methods.join(','));
+          this.app.logger.info('[devtoolx-console] ignore router: %s, methods: %s', layer.path, layer.methods.join(','));
           layer.stack.pop();
         }
       }
@@ -56,7 +56,7 @@ class AppBoot {
         Object.defineProperty(app, 'storage', {
           get() {
             return customStorage.call(app, originStorage);
-          }
+          },
         });
       }
     }
