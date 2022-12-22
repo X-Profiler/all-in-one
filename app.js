@@ -21,7 +21,7 @@ class AppBoot {
         const middlewares = app.middleware;
         for (const length = middlewares.length; index < length; index++) {
           const { _name } = middlewares[index];
-          if (_name.includes('basicAuth')) {
+          if (_name && _name.includes('basicAuth')) {
             break;
           }
         }
