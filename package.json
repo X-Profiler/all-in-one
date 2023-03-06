@@ -30,7 +30,7 @@
   "homepage": "https://github.com/X-Profiler/all-in-one#readme",
   "dependencies": {
     "@xprofiler/console": "^1.0.5",
-    "@xprofiler/manager": "^1.0.0",
+    "@xprofiler/manager": "^1.0.1",
     "@xprofiler/wsserver": "^1.0.3",
     "cross-env": "^7.0.3",
     "egg": "^3.5.0",
