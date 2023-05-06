@@ -50,7 +50,7 @@ module.exports = appInfo => {
   config.xtransitManager = 'http://127.0.0.1:8543';
 
   config.xtransit = {
-    server: EZM_SERVER || 'ws://127.0.0.1:9090',
+    server: EZM_SERVER || 'ws://127.0.0.1:9190',
     appId: EZM_ID || '',
     appSecret: EZM_SECRET || '',
     logDir: path.join(__dirname, '../logs', appInfo.scope),
