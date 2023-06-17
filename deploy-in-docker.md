@@ -40,6 +40,9 @@ module.exports = {
       db: 0,
     },
   },
+
+  xprofilerConsole: 'http://127.0.0.1:8443',
+  xtransitManager: 'http://127.0.0.1:8543',
 };
 ```
 
