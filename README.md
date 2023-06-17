@@ -1,4 +1,5 @@
 # all-in-one
+
 startup of all projects with one script
 
 ## Quick Start
@@ -164,8 +165,6 @@ npm run dev:wsserver
 Create `config/config.console_prod.js` for production or `config/config.console_local.js` for development:
 
 ```js
-'use strict';
-
 module.exports = () => {
   const config = {};
 
@@ -179,7 +178,7 @@ module.exports = () => {
       // identity is mostly like the unique workId
       const { nick, identity, mail } = await getUserInfo();
       if(!nick || !identity || !mail) {
-    	  return (ctx.body = 'access denied');
+        return (ctx.body = 'access denied');
       }
     
       const user = await mysql.getUserByIdentity(identity);
@@ -262,3 +261,7 @@ module.exports = () => {
   return config;
 };
 ```
+
+## Deploy in Docker
+
+See [deploy-in-docker.md](deploy-in-docker.md)

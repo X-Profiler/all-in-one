@@ -7,6 +7,7 @@
     "lint": "eslint config lib app.js index.js --fix",
     "dev": "cross-env EZM_ENV=local nodemon index.js",
     "start": "pm2 start index.js --name ezmall",
+    "start:foreground": "pm2-runtime index.js --name ezmall",
     "stop": "pm2 delete ezmall",
     "dev:console": "cross-env EZM_ENV=local DISABLE_MANAGER=YES DISABLE_WSSERVER=YES nodemon index.js",
     "dev:manager": "cross-env EZM_ENV=local DISABLE_CONSOLE=YES DISABLE_WSSERVER=YES nodemon index.js",

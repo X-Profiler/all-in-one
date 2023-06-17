@@ -1,5 +1,3 @@
-'use strict';
-
 const startProject = require('./lib/project');
 
 // run project

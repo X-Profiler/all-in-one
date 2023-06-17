@@ -1,5 +1,3 @@
-'use strict';
-
 class AppBoot {
   constructor(app) {
     this.app = app;

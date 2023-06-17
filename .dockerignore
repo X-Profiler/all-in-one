@@ -1,0 +1,5 @@
+logs
+node_modules
+run
+coverage
+config.prod.js
