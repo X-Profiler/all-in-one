@@ -57,7 +57,7 @@ docker run -p 8443:8443 -p 8543:8543 -p 9190:9190 -it --rm \
 
 https://ezm.fengmk2.com:9443
 
-体验账号：demo@test.com/12345678
+体验账号：`demo@test.com/12345678`
 
 ### ezmmanager
 
