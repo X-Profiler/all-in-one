@@ -1,4 +1,3 @@
-# https://stackoverflow.com/questions/65612411/forcing-docker-to-use-linux-amd64-platform-by-default-on-macos/69636473#69636473
 FROM node:18
 
 # Create app directory
