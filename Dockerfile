@@ -4,10 +4,11 @@ FROM node:18
 WORKDIR /usr/src/app
 
 # Install app dependencies
-COPY . .
-
+COPY package.json .
 RUN npm install --registry=https://registry.npmmirror.com -g npminstall \
   && npminstall -c -d
+
+COPY . .
 
 ENV NODE_ENV=production \
   EGG_SERVER_ENV=prod
