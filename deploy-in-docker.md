@@ -3,7 +3,7 @@
 ## 构建镜像
 
 ```bash
-docker build -t ezmall .
+docker build -t fengmk2/ezmall .
 ```
 
 ## 使用 `config.prod.js` 覆盖
@@ -58,7 +58,7 @@ docker run -p 8443:8443 -p 8543:8543 -p 9190:9190 -it --rm \
 
 ### ezmconsole
 
-https://ezm.fengmk2.com:9443
+https://ezm.fengmk2.com
 
 体验账号：`demo@test.com/12345678`
 

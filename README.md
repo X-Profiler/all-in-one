@@ -265,3 +265,7 @@ module.exports = () => {
 ## Deploy in Docker
 
 See [deploy-in-docker.md](deploy-in-docker.md)
+
+## SelfHosted（推荐）
+
+See [selfhosted with docker compose](.docker/selfhosted/README.md)

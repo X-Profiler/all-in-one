@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:20.18.3
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -6,11 +6,11 @@ WORKDIR /usr/src/app
 # Install app dependencies
 COPY . .
 
-RUN npm install --registry=https://registry.npmmirror.com -g npminstall \
-  && npminstall -c -d
+RUN apt update && apt install -y mariadb-client \
+  && npm i --registry=https://registry.npmmirror.com -g npminstall && npminstall -c
 
 ENV NODE_ENV=production \
   EGG_SERVER_ENV=prod
 
 EXPOSE 8443 8543 9190
-CMD ["npm", "run", "start:foreground"]
+CMD ["npm", "run", "start:docker"]

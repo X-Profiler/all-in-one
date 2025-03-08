@@ -1,0 +1,15 @@
+name: ezmall_dev_services
+services:
+  mysql:
+    image: mysql:9
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-}
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+
+networks:
+  dev:
