@@ -5,6 +5,10 @@ const {
   EZM_SERVER,
   EZM_ID,
   EZM_SECRET,
+  REDIS_SERVER_HOST,
+  DB_SERVER_HOST,
+  DB_USERNAME,
+  DB_PASSWORD,
 } = process.env;
 
 module.exports = appInfo => {
@@ -15,17 +19,17 @@ module.exports = appInfo => {
     agent: false,
     clients: {
       xprofiler_console: {
-        host: '127.0.0.1',
+        host: DB_SERVER_HOST || '127.0.0.1',
         port: 3306,
-        user: 'root',
-        password: '',
+        user: DB_USERNAME || 'root',
+        password: DB_PASSWORD || '',
         database: 'xprofiler_console',
       },
       xprofiler_logs: {
-        host: '127.0.0.1',
+        host: DB_SERVER_HOST || '127.0.0.1',
         port: 3306,
-        user: 'root',
-        password: '',
+        user: DB_USERNAME || 'root',
+        password: DB_PASSWORD || '',
         database: 'xprofiler_logs',
       },
     },
@@ -35,7 +39,7 @@ module.exports = appInfo => {
     client: {
       sentinels: null,
       port: 6379,
-      host: '127.0.0.1',
+      host: REDIS_SERVER_HOST || '127.0.0.1',
       password: '',
       db: 0,
     },

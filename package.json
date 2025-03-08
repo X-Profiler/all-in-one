@@ -9,6 +9,8 @@
     "start": "pm2 start index.js --name ezmall",
     "start:foreground": "pm2-runtime index.js --name ezmall",
     "stop": "pm2 delete ezmall",
+    "init:db": "sh ./scripts/init_db.sh",
+    "start:docker": "npm run init:db && npm run start:foreground",
     "dev:console": "cross-env EZM_ENV=local DISABLE_MANAGER=YES DISABLE_WSSERVER=YES nodemon index.js",
     "dev:manager": "cross-env EZM_ENV=local DISABLE_CONSOLE=YES DISABLE_WSSERVER=YES nodemon index.js",
     "dev:wsserver": "cross-env EZM_ENV=local DISABLE_CONSOLE=YES DISABLE_MANAGER=YES nodemon index.js",
@@ -35,6 +37,7 @@
     "@xprofiler/wsserver": "^1.0.3",
     "cross-env": "^7.0.3",
     "egg": "^3.5.0",
+    "egg-mysql": "^5.0.0",
     "egg-xtransit": "^2.0.0",
     "pm2": "^5.2.2"
   },

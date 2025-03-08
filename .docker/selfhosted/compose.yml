@@ -1,0 +1,50 @@
+name: ezmall
+services:
+  ezmall:
+    image: fengmk2/ezmall:${EZMALL_REVISION:-latest}
+    container_name: ezmall_server
+    ports:
+      - '${EZMALL_CONSOLE_PORT:-8443}:8443'
+      - '${EZMALL_MANAGER_PORT:-8543}:8543'
+      - '${EZMALL_WS_PORT:-9190}:9190'
+    depends_on:
+      redis:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+    # volumes:
+      # custom configurations
+      # - ${CONFIG_LOCATION}:/root/.ezmall/config
+    env_file:
+      - .env
+    environment:
+      - REDIS_SERVER_HOST=redis
+      - DB_SERVER_HOST=mysql
+    restart: unless-stopped
+
+  redis:
+    image: redis
+    env_file:
+      - .env
+    healthcheck:
+      test: ['CMD', 'redis-cli', '--raw', 'incr', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  mysql:
+    image: mysql:9
+    volumes:
+      - ${DB_DATA_LOCATION}:/var/lib/mysql
+    env_file:
+      - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-}
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
