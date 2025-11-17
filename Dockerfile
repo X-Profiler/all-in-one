@@ -8,7 +8,8 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install dependencies (production only)
-RUN npm ci --only=production
+# Note: Using npm install since package-lock.json is not present in the repository
+RUN npm install --only=production
 
 # Stage 2: Production stage
 FROM node:20.18.3-slim
