@@ -1,7 +1,7 @@
 name: ezmall
 services:
   ezmall:
-    image: fengmk2/ezmall:${EZMALL_REVISION:-latest}
+    image: ghcr.io/x-profiler/all-in-one:${IMAGE_TAG:-latest}
     container_name: ezmall_server
     ports:
       - '${EZMALL_CONSOLE_PORT:-8443}:8443'
