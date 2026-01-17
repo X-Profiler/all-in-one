@@ -34,7 +34,8 @@ services:
     restart: unless-stopped
 
   mysql:
-    image: mysql:9
+    # Use MySQL 8.0 for mysql_native_password compatibility with MariaDB client
+    image: mysql:8.0
     volumes:
       - ${DB_DATA_LOCATION}:/var/lib/mysql
     env_file:
@@ -42,8 +43,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-}
       MYSQL_ALLOW_EMPTY_PASSWORD: yes
-    # Use mysql_native_password for compatibility with MariaDB client in Alpine
-    command: --mysql_native_password=ON --authentication_policy=mysql_native_password
+    command: --default-authentication-plugin=mysql_native_password
     healthcheck:
       test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
       interval: 10s
