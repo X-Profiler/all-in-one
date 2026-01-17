@@ -42,6 +42,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-}
       MYSQL_ALLOW_EMPTY_PASSWORD: yes
+    # Use mysql_native_password for compatibility with MariaDB client in Alpine
+    command: --mysql-native-password=ON --authentication-policy=mysql_native_password
     healthcheck:
       test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
       interval: 10s

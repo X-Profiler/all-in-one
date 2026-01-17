@@ -29,7 +29,6 @@ COPY scripts/ ./scripts/
 FROM node:20-alpine AS production
 
 # Install MySQL client for init_db.sh script
-# Combined with cleanup in single layer (layer optimization)
 RUN apk add --no-cache mysql-client
 
 # Create app directory
