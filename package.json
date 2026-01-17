@@ -1,5 +1,5 @@
 {
-  "name": "@xprofiler/all-in-one",
+  "name": "ezmall",
   "version": "1.0.0",
   "description": "startup of all projects with one script",
   "main": "index.js",
