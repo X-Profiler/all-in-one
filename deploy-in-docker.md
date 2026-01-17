@@ -54,32 +54,10 @@ docker run -p 8443:8443 -p 8543:8543 -p 9190:9190 -it --rm \
   --name ezmall ezmall
 ```
 
-## 演示地址
-
-### ezmconsole
-
-https://ezm.fengmk2.com
-
-体验账号：`demo@test.com/12345678`
-
-### ezmmanager
-
-http://ezm.fengmk2.com:8543
-
-### ezmwsserver
-
-http://ezm.fengmk2.com:9190
-
 ## fengmk2/ezmall 镜像
 
 https://hub.docker.com/r/fengmk2/ezmall
 
 ```bash
 docker pull fengmk2/ezmall
-```
-
-阿里云镜像
-
-```bash
-docker pull registry.cn-shanghai.aliyuncs.com/fengmk2/ezmall:latest
 ```

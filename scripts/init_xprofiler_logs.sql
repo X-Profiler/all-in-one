@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `process`(
   `http_response_sent` INT UNSIGNED COMMENT 'http responeses sent in last 1 min',
   `http_request_timeout` INT UNSIGNED COMMENT 'timeout http requests in last 1 min',
   `http_patch_timeout` INT UNSIGNED COMMENT 'http patch timeout (s)',
-  `http_rt` DECIMAL(5,2) COMMENT 'http average response time (ms)',
+  `http_rt` DECIMAL(8,2) COMMENT 'http average response time (ms)',
 
   `gm_modified` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'system modify timestamp',
   `gm_create` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'system create timestamp',
@@ -152,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `osinfo`(
   `http_response_sent` INT UNSIGNED COMMENT 'http responeses sent in last 1 min',
   `http_request_timeout` INT UNSIGNED COMMENT 'timeout http requests in last 1 min',
   `http_patch_timeout` INT UNSIGNED COMMENT 'http patch timeout (s)',
-  `http_rt` DECIMAL(5,2) COMMENT 'http average response time (ms)',
+  `http_rt` DECIMAL(8,2) COMMENT 'http average response time (ms)',
 
   `gm_modified` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'system modify timestamp',
   `gm_create` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'system create timestamp',

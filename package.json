@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/X-Profiler/all-in-one#readme",
   "dependencies": {
-    "@xprofiler/console": "^1.0.5",
+    "@xprofiler/console": "github:X-Profiler/xprofiler-console",
     "@xprofiler/manager": "^1.0.1",
     "@xprofiler/wsserver": "^1.0.3",
     "cross-env": "^7.0.3",
