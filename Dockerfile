@@ -19,7 +19,6 @@ RUN --mount=type=cache,target=/root/.npm \
 
 # Copy application source (only necessary files)
 COPY app.js index.js ./
-COPY app/ ./app/
 COPY config/ ./config/
 COPY lib/ ./lib/
 COPY scripts/ ./scripts/
