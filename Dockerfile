@@ -2,10 +2,7 @@
 # =============================================================================
 # Stage 1: Build Stage
 # =============================================================================
-FROM node:20-alpine AS builder
-
-# Install git for GitHub dependencies
-RUN apk add --no-cache git
+FROM node:20.20.0 AS builder
 
 WORKDIR /usr/src/app
 
@@ -26,10 +23,11 @@ COPY scripts/ ./scripts/
 # =============================================================================
 # Stage 2: Production Stage
 # =============================================================================
-FROM node:20-alpine AS production
+FROM node:20.20.0 AS production
 
-# Install MySQL client for init_db.sh script
-RUN apk add --no-cache mysql-client
+# Install MariaDB client for init_db.sh script
+RUN apt-get update && apt-get install -y --no-install-recommends mariadb-client \
+    && rm -rf /var/lib/apt/lists/*
 
 # Create app directory
 WORKDIR /usr/src/app
