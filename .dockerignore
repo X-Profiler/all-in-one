@@ -1,5 +1,40 @@
-logs
+# Dependencies (reinstalled in container)
 node_modules
+npm-debug.log
+
+# Logs and runtime
+logs
 run
 coverage
+
+# Git
+.git
+.gitignore
+.github
+
+# Docker files (avoid recursive copy)
+.docker
+Dockerfile
+docker-compose*.yml
+compose*.yml
+.dockerignore
+
+# Development files
+.eslintrc*
+.eslintignore
+nodemon.json
+*.md
+
+# Config that should be mounted at runtime
 config.prod.js
+*.local.js
+
+# Misc
+.env
+.env.*
+*.log
+*.tgz
+.npm
+.cache
+tests
+__tests__
